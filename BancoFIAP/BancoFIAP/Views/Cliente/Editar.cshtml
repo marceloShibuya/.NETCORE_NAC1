@@ -1,0 +1,19 @@
+﻿@model Cliente
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<form asp-action="editar">
+
+    <input asp-for="Codigo" />
+
+    <partial name="_Form" />
+
+    <input type="submit" value="Editar" class="btn btn-outline-success" />
+    <a asp-action="index" class="btn btn-outline-dark">Cancelar</a>
+
+</form>
+

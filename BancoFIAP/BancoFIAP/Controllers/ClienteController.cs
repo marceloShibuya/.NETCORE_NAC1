@@ -79,22 +79,11 @@ namespace BancoFIAP.Controllers
         [HttpGet]
         public IActionResult Pesquisar(string nome)
         {
-            var cliente = _lista.Find(c => c.Nome == nome);
+            var cliente = _lista.Where(c => c.Nome == nome || nome == null).ToList();
             TempData["msg"] = "Clientre encontrado!";
-            return View(cliente);
+            return View("Index", cliente);
         }
 
-        [HttpPost]
-        public IActionResult Pesquisar(Cliente cliente)
-        {
-            if(_lista.Exists(c => c.Nome == cliente.Nome))
-            {
-                return View(cliente);
-            }
-            else
-            {
-                return null;
-            }
-        }
+
     }
 }

@@ -7,14 +7,14 @@
 
 <shibuya texto="@TempData["msg"]"></shibuya>
 
-<a asp-action="cadastrar">Cadastrar</a>
-
-<form asp-controller="Cliente" asp-action="Index">
-    <p>
-        Title: <input type="text" name="SearchString">
-        <input type="submit" value="Filter" />
-    </p>
+<form asp-action="pesquisar" method="get" class="form-inline">
+    <input placeholder="Digite o nome" name="nome" class="form-control mr-2" type="text" />
+    <input type="submit" value="Pesquisar" class="btn btn-success mg-2" />
 </form>
+
+<div class="text-right">
+    <a asp-action="cadastrar" class="btn btn-outline-primary mb-2">Cadastrar</a>
+</div>
 
 <table class="table table-hover">
 
@@ -43,8 +43,7 @@
         <a asp-action="Editar" class="btn btn-sm btn-primary" asp-route-id="@cli.Codigo">Atualizar</a>
         <button onclick="clienteId.value = @cli.Codigo" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
             Excluir
-        </button>
-        <a asp-action="Pesquisar" class="btn btn-sm btn-primary" asp-route-id="@cli.Nome">Pesquisar</a>
+        </button>       
     </td>
 </tr>
     }
